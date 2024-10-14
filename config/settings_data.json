@@ -20,6 +20,19 @@
         "disabled": false,
         "settings": {
         }
+      },
+      "16110913068925889083": {
+        "type": "shopify://apps/recurate-resale-made-easy/blocks/recurate-head-content/ee87d27a-f9c1-4c7a-907d-dd480fe70354",
+        "disabled": false,
+        "settings": {
+          "content_html": "",
+          "css_home": false,
+          "container_max_width": "1400px",
+          "title_token": "",
+          "selector_plp_item": "",
+          "selector_plp_badging_container": "",
+          "selector_plp_url_container": ""
+        }
       }
     }
   }
