@@ -48,9 +48,10 @@
             window.location.pathname !== '/challenge'
         ) {
           var currentHostname = window.location.hostname;
+          var currentUrl = window.location.href;
           var storefrontHostname = "{{ settings.storefront_hostname }}";
 
-          if (currentHostname !== storefrontHostname) {
+          if (!currentUrl.includes('?r-resale') && currentHostname !== storefrontHostname) {
             var redirectUrl = window.location.href.replace(currentHostname, storefrontHostname);
 
             var customRedirectsStr = "{{ settings.custom_redirects | newline_to_br | strip_newlines | replace: ' ', '' }}";
