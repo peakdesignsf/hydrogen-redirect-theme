@@ -9,7 +9,7 @@
  */
 {
   "current": {
-    "storefront_hostname": "https://peak-sandbox-b22615b6ea4f2cfde993.o2.myshopify.dev/",
+    "storefront_hostname": "www.peakdesign.com",
     "integrate_with_customer_accounts": true,
     "content_for_index": []
   }
