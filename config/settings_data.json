@@ -9,7 +9,7 @@
  */
 {
   "current": {
-    "storefront_hostname": "www.peedev.com",
+    "storefront_hostname": "https://peedev.com/",
     "integrate_with_customer_accounts": true,
     "content_for_index": []
   }
