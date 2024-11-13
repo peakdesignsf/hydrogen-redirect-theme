@@ -41,6 +41,22 @@
           document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
         }
 
+        window.customerLoggedIn = {% if customer %}true{% else %}false{% endif %};
+
+          if (window.Shopify && window.Shopify.checkout && window.Shopify.checkout.customer) {
+            // Customer is logged in
+            console.log("Customer is logged in");
+          } else {
+            // Customer is not logged in
+            console.log("Customer is not logged in");
+          }
+
+          if (window.customerLoggedIn) {
+            console.log("Customer is logged in 2");
+          } else {
+            console.log("Customer is not logged in 2");
+          }
+
         if (
           !window.Shopify.designMode &&
             window.location.pathname !== '/checkpoint' &&
@@ -91,22 +107,6 @@
             }
             window.storefrontRedirectUrl = redirectUrl;
             window.location.replace(redirectUrl);
-          }
-
-          window.customerLoggedIn = {% if customer %}true{% else %}false{% endif %};
-
-          if (window.Shopify && window.Shopify.checkout && window.Shopify.checkout.customer) {
-            // Customer is logged in
-            console.log("Customer is logged in");
-          } else {
-            // Customer is not logged in
-            console.log("Customer is not logged in");
-          }
-
-          if (window.customerLoggedIn) {
-            console.log("Customer is logged in 2");
-          } else {
-            console.log("Customer is not logged in 2");
           }
         }
       </script>
