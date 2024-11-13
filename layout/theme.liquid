@@ -43,19 +43,13 @@
 
         window.customerLoggedIn = {% if customer %}true{% else %}false{% endif %};
 
-          if (window.Shopify && window.Shopify.checkout && window.Shopify.checkout.customer) {
-            // Customer is logged in
-            console.log("Customer is logged in");
-          } else {
-            // Customer is not logged in
-            console.log("Customer is not logged in");
-          }
-
-          if (window.customerLoggedIn) {
-            console.log("Customer is logged in 2");
-          } else {
-            console.log("Customer is not logged in 2");
-          }
+        if (window.customerLoggedIn && currentUrl.includes('?r-resale&r-continue=listing/')) {
+          console.log("Customer is logged in 2");
+          var currentHostname = window.location.hostname;
+          window.location.href(`${currentHostname}/a/resale/listings`)
+        } else {
+          console.log("Customer is not logged in 2");
+        }
 
         if (
           !window.Shopify.designMode &&
