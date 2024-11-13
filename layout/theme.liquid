@@ -92,6 +92,16 @@
             window.storefrontRedirectUrl = redirectUrl;
             window.location.replace(redirectUrl);
           }
+
+          function isLoggedIn() {
+            return document.cookie.includes('logged_in');
+          }
+
+          if (isLoggedIn()) {
+            console.log("Customer is logged in");
+          } else {
+            console.log("Customer is not logged in");
+          }
         }
       </script>
     {%- endif -%}
