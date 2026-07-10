@@ -23,7 +23,20 @@
       <link rel="canonical" href="{{ canonical_url }}">
     {% endif %}
 
-    {%- if settings.storefront_hostname != blank and should_redirect -%}
+    {%- comment -%}
+      Paths that should NOT be redirected, so Shopify's own handlers can respond.
+      This is where we let Shopify serve its default agents.md / llms.txt / llms-full.txt.
+    {%- endcomment -%}
+    {%- assign no_redirect_paths = '/agents.md,/llms.txt,/llms-full.txt,/.well-known/ucp' | split: ',' -%}
+    {%- assign current_path = request.path -%}
+    {%- assign is_no_redirect_path = false -%}
+    {%- for p in no_redirect_paths -%}
+      {%- if p == current_path -%}
+        {%- assign is_no_redirect_path = true -%}
+      {%- endif -%}
+    {%- endfor -%}
+
+    {%- if settings.storefront_hostname != blank and should_redirect and is_no_redirect_path == false -%}
       <script>
         function getCookie(name) {
           name = name + '=';
