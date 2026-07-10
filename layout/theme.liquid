@@ -160,7 +160,7 @@
     </style>
   </head>
   <body>
-    {%- if should_redirect -%}
+    {%- if should_redirect and is_no_redirect_path == false -%}
       <div class="redirect">
         {%- if settings.storefront_hostname != blank -%}
           <h1>Redirecting...</h1>
